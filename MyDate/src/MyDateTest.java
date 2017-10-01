@@ -1,7 +1,6 @@
 import java.util.Scanner;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-
 public class MyDateTest
 {
 
@@ -48,7 +47,7 @@ public class MyDateTest
        * System.out.println("Are the dates equal? ");
        * System.out.println(mydate.equals(mydate2)); mydate.set(month, day,
        * year); MyDate copydate = mydate.copy(); copydate.toString();
-       */
+       
       System.out.println("Is it a leap year?" + mydate.isLeapYear());
       System.out.println(
             "How many days in birth month? " + mydate.numberOfDaysInMonth());
@@ -66,6 +65,9 @@ public class MyDateTest
       System.out.println("Day = " + now.get(Calendar.DAY_OF_MONTH));
       System.out.println("Month = " + (now.get(Calendar.MONTH) + 1));
       System.out.println("Year = " + now.get(Calendar.YEAR));
+      */
+      mydate = MyDate.now();
+      mydate.toString();
       scan.close();
    }
 

@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import java.util.GregorianCalendar;
+import java.util.Calendar;
 
 public class MyDate
 {
@@ -334,5 +336,63 @@ public class MyDate
    public MyDate()
    {
       
+   }
+   
+   public boolean isBefore(Object obj)
+   {
+      if (!(obj instanceof MyDate))
+      {
+         return false;
+      }
+      MyDate object = (MyDate) obj;
+      if (this.year < object.getYear())
+         return true;
+      if (this.year == object.getYear() && this.month < object.getMonth())
+         return true;
+      if (this.year == object.getYear() && this.month == object.getMonth() && this.day < object.getDay())
+         return true;
+         return false;
+   }
+   
+   public int yearsBetween(MyDate other)
+   {
+   if (this.month > other.getMonth())
+      return Math.abs(this.year - other.getYear()) - 1;
+   if (this.month == other.getMonth() && this.day > other.getDay())
+      return Math.abs(this.year - other.getYear()) - 1;
+      return Math.abs(this.year - other.getYear());
+   }
+   
+   public int daysBetween(MyDate other)
+   {
+      int counter = 0;
+      if(isBefore(other))
+      {
+         MyDate counterDate = new MyDate(this.month,this.day,this.year);
+         while(!(other.equals(counterDate)))
+         {
+            counterDate.stepForwardOneDay();
+            counter++;
+         }
+      }
+      else
+      {
+         MyDate counterDate = new MyDate(this.month,this.day,this.year);
+         while(!(other.equals(counterDate)))
+         {
+            other.stepForwardOneDay();
+            counter++;
+         }
+      }
+      return counter;
+   }
+   
+   public static MyDate now()
+   { 
+      MyDate today = new MyDate();
+      Calendar now = GregorianCalendar.getInstance();
+      System.out.println(now.get(Calendar.YEAR));
+      today.set(now.get(Calendar.MONTH)+1, now.get(Calendar.DAY_OF_MONTH), now.get(Calendar.YEAR));
+      return today;
    }
 }
