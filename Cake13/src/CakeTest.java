@@ -1,4 +1,5 @@
 import java.util.Scanner;
+
 public class CakeTest
 {
 
@@ -7,7 +8,7 @@ public class CakeTest
       Scanner scan = new Scanner(System.in);
       System.out.println("What is the weight of the cake? ");
       double weight = scan.nextDouble();
-      while(weight<=0)
+      while (weight <= 0)
       {
          System.out.println("Input the weight again");
          weight = scan.nextDouble();
@@ -16,23 +17,24 @@ public class CakeTest
       System.out.println("What is the name of the cake?");
       String name = scan.nextLine();
       Cake cake1 = new Cake(name, weight);
-      Cake cake2 = new Cake(name,weight);
-      while(!cake1.isCakeGone())
+      Cake cake2 = new Cake(name, weight);
+      while (!cake1.isCakeGone())
       {
          System.out.println("How much do you want to eat(g,% then quantity)");
-         String string =scan.nextLine();
+         String string = scan.nextLine();
          double quantity = scan.nextDouble();
          scan.nextLine();
          cake1.eat(quantity, string.charAt(0));
       }
       System.out.println("You've eaten all the " + cake1.getName() + " cake");
-      
+
+      System.out.println("We now have Rum Ball");
       Cake rumball = Cake.makeRumBall(cake1, cake2);
-      
-      while(!rumball.isCakeGone())
+
+      while (!rumball.isCakeGone())
       {
          System.out.println("How much do you want to eat(g,% then quantity)");
-         String string =scan.nextLine();
+         String string = scan.nextLine();
          double quantity = scan.nextDouble();
          scan.nextLine();
          rumball.eat(quantity, string.charAt(0));

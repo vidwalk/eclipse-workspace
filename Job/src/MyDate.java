@@ -78,7 +78,8 @@ public class MyDate
    }
 
    public String toString()
-   {  String result = "";
+   {
+      String result = "";
       if (year > 1900)
       {
          if (day < 10 && month < 10)
@@ -124,8 +125,8 @@ public class MyDate
             result = result + day + "/" + month + "/" + year;
          }
       }
-      return result;
-   }
+      return result;   
+      }
 
    public boolean answerTo(String e)
    {
@@ -192,6 +193,9 @@ public class MyDate
    {
 
       MyDate copydate = new MyDate(month, day, year);
+      copydate.month = month;
+      copydate.day = day;
+      copydate.year = year;
       return copydate;
    }
 
