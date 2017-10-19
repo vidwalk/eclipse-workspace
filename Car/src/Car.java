@@ -46,8 +46,7 @@ public String toString()
 {
    String result ="";
    result = result+ this.registrationNumber;
-   result = result + " " + this.mileage;
-   result = result + " " + this.serviceBook.toString();
+   result = result + "\n" + this.serviceBook.toString();
    return result;
 }
 }

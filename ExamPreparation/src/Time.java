@@ -4,56 +4,87 @@ public class Time
    int hour;
    int minute;
    int second;
-
-   public Time(int hour, int minute, int second)
+   
+   public Time(int h, int m, int s)
    {
-      this.hour = hour;
-      this.minute = minute;
-      this.second = second;
+      this.hour = h;
+      this.minute = m;
+      this.second = s;
       if(this.hour < 0)
          this.hour = 0;
       if(this.minute < 0)
          this.minute = 0;
       if(this.minute >= 60)
          this.minute = 59;
-         
+      if(this.second >= 60)
+         this.second = 59;
+      if(this.second < 0)
+         this.second = 0;
    }
-
+   
    public Time(int timeInSeconds)
    {
-      if (timeInSeconds / 3600 > 0)
-      {
-         hour = timeInSeconds / 3600;
-         timeInSeconds = timeInSeconds % 3600;
+      if(timeInSeconds > 3600)
+      {this.hour = timeInSeconds/3600;
+      timeInSeconds = timeInSeconds - this.hour*3600;
       }
-      if (timeInSeconds / 60 > 0)
+      if(timeInSeconds > 60)
       {
-         minute = timeInSeconds / 60;
-         timeInSeconds = timeInSeconds % 60;
+      this.minute = timeInSeconds/60;
+      timeInSeconds = timeInSeconds - this.minute*60;
       }
-      second = timeInSeconds;
+      this.second = timeInSeconds;
+      if(this.hour < 0)
+         this.hour = 0;
+      if(this.minute < 0)
+         this.minute = 0;
+      if(this.minute >= 60)
+         this.minute = 59;
+      if(this.second >= 60)
+         this.second = 59;
+      if(this.second < 0)
+         this.second = 0;
    }
-
+   
    public int getHour()
    {
       return this.hour;
    }
-
+   
    public int getMinute()
    {
       return this.minute;
    }
-
+   
    public int getSecond()
    {
       return this.second;
    }
-
+   
    public int getTimeInSeconds()
    {
-      return (this.hour * 3600 + this.minute * 60 + this.second);
+      int result;
+      result = this.hour*3600 + this.minute*60 + this.second;
+      return result;
    }
-
+   
+   public void setTime(int h, int m, int s)
+   {
+      this.hour = h;
+      this.minute = m;
+      this.second = s;
+      if(this.hour < 0)
+         this.hour = 0;
+      if(this.minute < 0)
+         this.minute = 0;
+      if(this.minute >= 60)
+         this.minute = 59;
+      if(this.second >= 60)
+         this.second = 59;
+      if(this.second < 0)
+         this.second = 0;
+   }
+   
    public String toString()
    {
       String result = "";
@@ -128,6 +159,4 @@ public class Time
 
       return result;
    }
-
-   
 }

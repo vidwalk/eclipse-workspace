@@ -85,7 +85,7 @@ public class ServiceBook
          result = result + services.get(i).toString();
          if (i < services.size() - 1)
          {
-            result = result + " ";
+            result = result + "\n";
          }
       }
       return result;

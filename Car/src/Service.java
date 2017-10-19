@@ -35,7 +35,7 @@ public class Service
    public String toString()
    {
       String result = "";
-      result = result + " " + this.date.toString();
+      result = result + " " + this.date.toString() + " " + this.mileage;
       return result;
    }
 }
